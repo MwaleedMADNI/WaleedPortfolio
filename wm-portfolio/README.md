@@ -1,12 +1,16 @@
 ﻿# Muhammad Waleed Madni — Systems & AI Engineer
 
-[![Live Site](https://img.shields.io/badge/Live-waleed--editor.vercel.app-7c3aed?style=for-the-badge&logo=vercel)](https://waleed-editor.vercel.app/)
+[![Live Site](https://img.shields.io/badge/Live-waleed--editor.vercel.app-8052ff?style=for-the-badge&logo=vercel)](https://waleed-editor.vercel.app/)
 [![GitHub](https://img.shields.io/badge/GitHub-MwaleedMADNI-24292e?style=for-the-badge&logo=github)](https://github.com/MwaleedMADNI)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Waleed_Madni-0077b5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/waleedmadni)
 
-An obsidian-grade interactive portfolio built for **Muhammad Waleed Madni**, Senior Systems & AI Engineer with 2+ years of production experience across full-stack systems engineering, autonomous AI agents, computer vision forensics, and streaming data architectures.
+An architectural portfolio engineered for **Muhammad Waleed Madni**, Senior Systems & AI Engineer with 2+ years of production experience shipping full-stack enterprise web platforms, autonomous AI agents, computer vision media forensics, and high-throughput streaming pipelines.
 
-Features a full-width **Interactive Systems Architecture Dashboard** dedicated to the undergraduate thesis: **Image & Video Forgery Detection Lab (IFDL)**, alongside 9 production-grade engineering deployments.
+Designed according to the **Dala Design System** ([Refero Style e5f5f8cf-e68d-4ed1-bbf5-6b67569af648](https://styles.refero.design/style/e5f5f8cf-e68d-4ed1-bbf5-6b67569af648) / [dala.craftedbygc.com](https://dala.craftedbygc.com)):
+- **Void Canvas (#000000)**: Pure black canvas where elements float with generous whitespace — no boxy card panels or borders.
+- **Chromatic Accent Balance**: Electric Iris (#8052ff) primary action CTAs, Saffron Spark (#ffb829) uppercase kicker tags, Deep Verdant (#15846e), and Bone White (#ffffff) typography.
+- **Monolithic Typography**: Weight-400 headlines at sculptural display scale (78px–113px) with aggressive negative tracking (-0.035em to -0.04em), paired with signature weight-200 (ultra-light) body text.
+- **3D Neural Particle Constellation**: Interactive Three.js WebGL canvas rendering thousands of chromatic triangular point-lights forming an organic 3D neural brain / intelligence cluster.
 
 ---
 
@@ -17,8 +21,8 @@ Features a full-width **Interactive Systems Architecture Dashboard** dedicated t
 - **Dual-Stream Forensic Engine**:
   - **Spatial Stream**: Fine-tuned ResNet-50 backbone extracting multi-scale hierarchical feature maps (224x224x2048).
   - **Frequency Domain Stream**: 2D Fast Fourier Transform (FFT) capturing periodic sensor noise patterns, discrete cosine transform (DCT) anomalies, and compression ghosting artifacts.
-  - **Feature Fusion**: Bilinear attention pooling fusing spatial and frequency embeddings into a unified localization heatmap.
-- **100% Vector Animated Diagrams**:
+  - **Feature Fusion**: Bilinear attention pooling fusing spatial and frequency embeddings into a unified localization heatmap (95.4% precision on FaceForensics++ benchmark).
+- **100% Vector Animated Diagrams & Interactive Console**:
   - **DFD Level 1 Pipeline**: Media Ingestion -> Dual-Stream Decomposition -> Tensor Concat -> Forensic Report.
   - **Sequence Lifelines**: End-to-end async communication sequence between User, API Gateway, Tensor Worker, and PostgreSQL Audit Vault.
   - **Activity State Machine**: Deterministic verification flow with validation, branch decomposition, and alert triggers.
@@ -36,10 +40,10 @@ Features a full-width **Interactive Systems Architecture Dashboard** dedicated t
 - **Edge IoT Anomaly Detector**: Lightweight edge ML pipeline detecting vibrational anomalies on simulated industrial sensor streams.
 - **Microservices Load Balancer & Gateway**: Reverse-proxy gateway with round-robin load distribution, rate limiting, and circuit breaking.
 
-### 3. 🎨 Obsidian Dark Glassmorphic Design System
-- **Three.js WebGL Topography**: Dynamic mathematically-rendered wireframe terrain responding subtly to cursor motion.
-- **Hardware-Accelerated CSS3**: Glowing status beacons, neon borders, smooth SVG data-flow animations, and zero heavy dependencies.
-- **Interactive Terminal**: Embedded CLI emulator supporting help, ifdl, projects, skills, contact, and clear.
+### 3. 🎨 Dala Design System Features
+- **Three.js WebGL Neural Brain**: Dynamic mathematically-rendered particle cluster responding subtly to cursor motion and scroll.
+- **Zero-Card Floating Layout**: Clean typographic hierarchy without card borders or drop shadows.
+- **Interactive Developer CLI Terminal**: Embedded console emulator supporting help, ifdl, projects, skills, contact, and hire.
 
 ---
 
@@ -61,7 +65,7 @@ cd WaleedPortfolio
 npm run dev
 `
 
-Alternatively, you can simply double-click index.html to open it in any browser!
+Alternatively, double-click index.html to open it in any browser!
 
 ---
 
@@ -70,16 +74,15 @@ Alternatively, you can simply double-click index.html to open it in any browser!
 `	ext
 WaleedPortfolio/
 ├── assets/                  # High-res diagrams & project screenshots
-│   ├── ifdl-screenshot.png
-│   ├── ifdl-dfd-level1.png
-│   ├── ifdl-sequence-diagram.png
+│   ├── ifdl-home.png
+│   ├── ifdl-detection.png
+│   ├── ifdl-results.png
 │   └── ...
 ├── css/
-│   ├── obsidian.css        # BuzzinTech obsidian design system & components
-│   └── style.css           # Core typography, reset, and layout styles
+│   ├── dala.css            # Dala design system tokens, typography, and layout
+│   └── style.css           # Utility resets & animations
 ├── js/
-│   ├── main.js             # Navigation, smooth scroll, terminal, and animations
-│   └── topography.js       # Three.js 3D undulating terrain background
+│   └── dala-canvas.js      # Three.js 3D neural brain particle constellation
 ├── index.html              # Main single-page portfolio (fully assembled)
 ├── package.json            # Local dev server script
 └── README.md               # Technical overview & documentation
