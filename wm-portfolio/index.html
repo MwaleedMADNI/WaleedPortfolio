@@ -248,7 +248,7 @@
       }
     
       /* ==========================================================
-         STYLISH ANIMATED FLOATING CAPSULE NAVIGATION (EXECUTIVE)
+         FULL-SCREEN EXECUTIVE NAVBAR WITH ANIMATED LASER BORDER
          ========================================================== */
       .ok-site-header {
         position: fixed !important;
@@ -257,94 +257,65 @@
         right: 0 !important;
         width: 100% !important;
         z-index: 500 !important;
-        pointer-events: none !important;
-        padding: 14px 20px !important;
-        display: flex !important;
-        justify-content: center !important;
-        transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-      }
-      @media (min-width: 768px) {
-        .ok-site-header {
-          padding: 18px 24px !important;
-        }
+        pointer-events: auto !important;
+        padding: 0 !important;
+        margin: 0 !important;
       }
 
       .ok-nav {
-        pointer-events: auto !important;
         position: relative !important;
         width: 100% !important;
-        max-width: 1200px !important;
-        border-radius: 999px !important;
-        margin: 0 auto !important;
-        background: rgba(9, 4, 18, 0.72) !important;
-        backdrop-filter: blur(28px) saturate(190%) !important;
-        -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: 
-          0 16px 40px rgba(0, 0, 0, 0.65),
-          0 0 0 1px rgba(124, 58, 237, 0.12),
-          0 0 35px rgba(124, 58, 237, 0.15),
-          inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
-        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        overflow: visible !important;
+        max-width: 100% !important;
+        border-radius: 0 !important; /* Full-width edge-to-edge: no circles, no pill ends */
+        margin: 0 !important;
+        background: rgba(6, 2, 14, 0.9) !important;
+        backdrop-filter: blur(24px) saturate(180%) !important;
+        -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+        border: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6) !important;
+        transition: background 0.3s ease, box-shadow 0.3s ease !important;
       }
 
-      /* Compact mode on scroll */
-      .ok-nav.is-scrolled {
-        background: rgba(7, 2, 15, 0.9) !important;
-        border-color: rgba(167, 139, 250, 0.28) !important;
-        box-shadow: 
-          0 20px 50px rgba(0, 0, 0, 0.85),
-          0 0 0 1px rgba(124, 58, 237, 0.25),
-          0 0 45px rgba(124, 58, 237, 0.28),
-          inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
-        transform: translateY(-2px) !important;
-      }
-
-      /* Animated Glowing Shimmer Perimeter Light */
-      .nav-shimmer-border {
+      /* Animated Glowing Laser Border Across the Whole Screen */
+      .nav-fullwidth-laser {
         position: absolute;
-        inset: -1px;
-        border-radius: 999px;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
         pointer-events: none;
-        z-index: 0;
-        padding: 1px;
+        z-index: 5;
         background: linear-gradient(
           90deg,
-          rgba(124, 58, 237, 0) 0%,
-          rgba(167, 139, 250, 0.6) 30%,
-          rgba(110, 231, 183, 0.7) 50%,
-          rgba(124, 58, 237, 0.6) 70%,
-          rgba(124, 58, 237, 0) 100%
+          transparent 0%,
+          rgba(124, 58, 237, 0) 15%,
+          rgba(124, 58, 237, 0.6) 35%,
+          rgba(167, 139, 250, 0.95) 50%,
+          rgba(110, 231, 183, 0.9) 62%,
+          rgba(124, 58, 237, 0.6) 75%,
+          transparent 100%
         );
         background-size: 200% 100%;
-        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-        -webkit-mask-composite: xor;
-        mask-composite: exclude;
-        animation: navShimmerTrace 8s linear infinite;
-        opacity: 0.65;
-        transition: opacity 0.3s ease;
+        animation: fullWidthLaserSweep 7s linear infinite;
+        box-shadow: 0 0 16px rgba(167, 139, 250, 0.7), 0 0 30px rgba(124, 58, 237, 0.4);
       }
-      .ok-nav:hover .nav-shimmer-border {
-        opacity: 1;
-        animation-duration: 5s;
-      }
-      @keyframes navShimmerTrace {
+      @keyframes fullWidthLaserSweep {
         0% { background-position: 200% 0; }
         100% { background-position: -200% 0; }
       }
 
       .ok-nav-inner {
-        position: relative;
-        z-index: 1;
-        padding: 10px 20px !important;
+        max-width: var(--ok-container-max, 1400px) !important;
+        margin: 0 auto !important;
+        padding: 16px 24px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
       }
       @media (min-width: 768px) {
         .ok-nav-inner {
-          padding: 11px 28px !important;
+          padding: 18px 40px !important;
         }
       }
 
@@ -366,9 +337,9 @@
         align-items: center;
         gap: 6px;
         position: relative;
-        margin-left: 6px;
-        padding: 3px 9px;
-        border-radius: 999px;
+        margin-left: 8px;
+        padding: 3px 8px;
+        border-radius: 4px; /* Crisp micro-tag, no circles */
         background: rgba(16, 185, 129, 0.08);
         border: 1px solid rgba(16, 185, 129, 0.28);
         font-family: 'JetBrains Mono', monospace;
@@ -379,7 +350,7 @@
       }
       .status-ping-dot {
         position: absolute;
-        left: 8px;
+        left: 7px;
         width: 6px;
         height: 6px;
         border-radius: 50%;
@@ -399,17 +370,17 @@
         75%, 100% { transform: scale(3); opacity: 0; }
       }
 
-      /* Navigation Links with Generous Spacing & Magnetic Slider */
+      /* Navigation Links with Generous Spacing & Sliding Laser Underline */
       .ok-nav-links {
         position: relative !important;
         display: none !important;
         align-items: center !important;
         margin-left: auto !important;
-        gap: 36px !important;
-        padding: 3px 6px !important;
-        border-radius: 999px !important;
-        background: rgba(255, 255, 255, 0.02) !important;
-        border: 1px solid rgba(255, 255, 255, 0.05) !important;
+        gap: 40px !important;
+        padding: 6px 0 !important;
+        border-radius: 0 !important;
+        background: transparent !important;
+        border: none !important;
       }
       @media (min-width: 900px) {
         .ok-nav-links {
@@ -421,30 +392,26 @@
       }
       @media (min-width: 1200px) {
         .ok-nav-links {
-          gap: 48px !important;
+          gap: 52px !important;
         }
       }
 
-      /* The Magnetic Gliding Liquid Glass Pill */
-      .nav-magnetic-pill {
+      /* The Animated Magnetic Sliding Underline */
+      .nav-slider-line {
         position: absolute;
-        top: 0;
+        bottom: 0;
         left: 0;
-        height: 100%;
-        border-radius: 999px;
+        height: 2px;
+        border-radius: 2px;
         pointer-events: none;
-        z-index: 1;
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.32), rgba(167, 139, 250, 0.12));
-        border: 1px solid rgba(167, 139, 250, 0.45);
-        box-shadow: 
-          0 0 20px rgba(124, 58, 237, 0.35),
-          inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        z-index: 10;
+        background: linear-gradient(90deg, #7c3aed, #a78bfa, #6ee7b7);
+        box-shadow: 0 0 10px rgba(167, 139, 250, 0.9), 0 0 20px rgba(124, 58, 237, 0.6);
         opacity: 0;
         transform: translate3d(0, 0, 0);
         transition: 
           transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
           width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
-          height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
           opacity 0.2s ease;
       }
 
@@ -452,21 +419,21 @@
         position: relative !important;
         z-index: 2 !important;
         font-family: 'Inter', -apple-system, sans-serif !important;
-        font-size: 13.5px !important;
+        font-size: 14px !important;
         font-weight: 500 !important;
         letter-spacing: 0.02em !important;
         color: rgba(255, 255, 255, 0.72) !important;
-        padding: 8px 18px !important;
-        border-radius: 999px !important;
+        padding: 8px 12px !important;
+        border-radius: 4px !important; /* Clean subtle radius, NOT circle pill */
         text-decoration: none !important;
         background: transparent !important;
         border: none !important;
         box-shadow: none !important;
-        transition: color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        transition: color 0.25s ease, background 0.25s ease !important;
       }
       .ok-nav-links a:hover {
         color: #ffffff !important;
-        transform: translateY(-1px) !important;
+        background: rgba(255, 255, 255, 0.05) !important;
       }
       .ok-nav-links a.active {
         color: #ffffff !important;
@@ -476,38 +443,34 @@
         display: none !important;
       }
 
-      /* Floating Mobile Navigation Card */
+      /* Full-Width Mobile Navigation Drawer */
       .ok-page #mainNav.ok-mobile-nav {
         display: none;
         position: absolute !important;
-        top: calc(100% + 12px) !important;
+        top: 100% !important;
         left: 0 !important;
         right: 0 !important;
         width: 100% !important;
-        background: rgba(9, 4, 18, 0.96) !important;
-        backdrop-filter: blur(28px) !important;
-        -webkit-backdrop-filter: blur(28px) !important;
-        border-radius: 20px !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(124, 58, 237, 0.2) !important;
-        padding: 16px 20px !important;
+        background: rgba(8, 3, 16, 0.98) !important;
+        backdrop-filter: blur(24px) !important;
+        -webkit-backdrop-filter: blur(24px) !important;
+        border-radius: 0 !important;
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8) !important;
+        padding: 16px 24px !important;
         z-index: 499 !important;
-        transform: translateY(-8px) !important;
-        opacity: 0 !important;
-        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
-        pointer-events: none !important;
       }
       .ok-page #mainNav.ok-mobile-nav.nav-open {
         display: block !important;
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        pointer-events: auto !important;
       }
       .ok-page #mainNav.ok-mobile-nav a {
         display: block !important;
-        padding: 13px 18px !important;
-        margin-bottom: 6px !important;
-        border-radius: 12px !important;
+        padding: 13px 14px !important;
+        margin-bottom: 4px !important;
+        border-radius: 4px !important;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
         font-size: 15px !important;
         color: rgba(255, 255, 255, 0.75) !important;
@@ -516,8 +479,7 @@
       .ok-page #mainNav.ok-mobile-nav a:hover,
       .ok-page #mainNav.ok-mobile-nav a.active {
         color: #ffffff !important;
-        background: rgba(124, 58, 237, 0.18) !important;
-        border-color: rgba(167, 139, 250, 0.3) !important;
+        background: rgba(124, 58, 237, 0.15) !important;
       }
     </style>
 </head>
@@ -526,10 +488,10 @@
 <!-- Three.js Undulating Topography Canvas Background -->
 <div id="canvas-container" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; opacity: 0.65;"></div>
 
-<!-- Header / Stylish Animated Floating Glass Capsule Navigation -->
+<!-- Header / Full-Width Executive Navigation with Animated Laser Border -->
 <header class="ok-site-header" id="siteHeader">
-<nav class="ok-nav" id="floatingNav" aria-label="Primary navigation">
-    <div class="nav-shimmer-border" aria-hidden="true"></div>
+<nav class="ok-nav" id="mainNavbar" aria-label="Primary navigation">
+    <div class="nav-fullwidth-laser" aria-hidden="true"></div>
     <div class="ok-nav-inner">
         <a href="/" class="ok-nav-logo" aria-label="Waleed Systems">
             <div class="brand-logo-wrap">
@@ -549,7 +511,7 @@
             </div>
         </a>
         <div class="ok-nav-links" id="desktopNavLinks">
-            <div class="nav-magnetic-pill" id="navMagneticPill" aria-hidden="true"></div>
+            <div class="nav-slider-line" id="navSliderLine" aria-hidden="true"></div>
             <a href="#hero" class="nav-item active" data-section="hero">Home</a>
             <a href="#capabilities" class="nav-item" data-section="capabilities">Capabilities</a>
             <a href="#projects" class="nav-item" data-section="projects">Systems (9)</a>
@@ -2649,38 +2611,35 @@ Google Drive: drive.google.com/drive/folders/1O-nvwRo_sJt4pqDhEBGY2NlAjQy8A2kY`,
   });
 
   // ==========================================================
-  // STYLISH ANIMATED FLOATING NAVBAR CONTROLLER
+  // FULL-SCREEN NAVBAR CONTROLLER WITH SLIDING LASER UNDERLINE
   // ==========================================================
-  (function initStylishAnimatedNav() {
+  (function initFullScreenAnimatedNav() {
     const container = document.getElementById('desktopNavLinks');
-    const pill = document.getElementById('navMagneticPill');
-    const nav = document.getElementById('floatingNav');
-    if (!container || !pill) return;
+    const line = document.getElementById('navSliderLine');
+    const nav = document.getElementById('mainNavbar');
+    if (!container || !line) return;
 
     const links = Array.from(container.querySelectorAll('.nav-item'));
 
-    function movePillTo(target, smooth = true) {
+    function moveLineTo(target, smooth = true) {
       if (!target) {
-        pill.style.opacity = '0';
+        line.style.opacity = '0';
         return;
       }
       const containerRect = container.getBoundingClientRect();
       const targetRect = target.getBoundingClientRect();
       const left = targetRect.left - containerRect.left;
-      const top = targetRect.top - containerRect.top;
       const width = targetRect.width;
-      const height = targetRect.height;
 
       if (!smooth) {
-        pill.style.transition = 'none';
+        line.style.transition = 'none';
       } else {
-        pill.style.transition = 'transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1), height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
+        line.style.transition = 'transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
       }
 
-      pill.style.width = width + 'px';
-      pill.style.height = height + 'px';
-      pill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
-      pill.style.opacity = '1';
+      line.style.width = width + 'px';
+      line.style.transform = `translate3d(${left}px, 0, 0)`;
+      line.style.opacity = '1';
     }
 
     function getActiveLink() {
@@ -2688,32 +2647,32 @@ Google Drive: drive.google.com/drive/folders/1O-nvwRo_sJt4pqDhEBGY2NlAjQy8A2kY`,
     }
 
     // Initial positioning after DOM paint
-    setTimeout(() => movePillTo(getActiveLink(), false), 150);
+    setTimeout(() => moveLineTo(getActiveLink(), false), 150);
 
     // Hover and focus events
     links.forEach(link => {
-      link.addEventListener('mouseenter', () => movePillTo(link, true));
-      link.addEventListener('focus', () => movePillTo(link, true));
+      link.addEventListener('mouseenter', () => moveLineTo(link, true));
+      link.addEventListener('focus', () => moveLineTo(link, true));
       link.addEventListener('click', () => {
         links.forEach(l => l.classList.remove('active'));
         link.classList.add('active');
-        movePillTo(link, true);
+        moveLineTo(link, true);
       });
     });
 
     container.addEventListener('mouseleave', () => {
-      movePillTo(getActiveLink(), true);
+      moveLineTo(getActiveLink(), true);
     });
 
     window.addEventListener('resize', () => {
-      movePillTo(getActiveLink(), false);
+      moveLineTo(getActiveLink(), false);
     });
 
-    // Dynamic Scroll Depth & Compact State
+    // Dynamic Scroll Depth
     window.addEventListener('scroll', () => {
       const currentScroll = window.scrollY;
       if (nav) {
-        if (currentScroll > 40) {
+        if (currentScroll > 30) {
           nav.classList.add('is-scrolled');
         } else {
           nav.classList.remove('is-scrolled');
@@ -2721,7 +2680,7 @@ Google Drive: drive.google.com/drive/folders/1O-nvwRo_sJt4pqDhEBGY2NlAjQy8A2kY`,
       }
     }, { passive: true });
 
-    // Intelligent Scroll-Spy: Glides pill to section currently in view
+    // Intelligent Scroll-Spy: Glides line to section currently in view
     const sectionIds = ['hero', 'capabilities', 'projects', 'methodology'];
     const observedSections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
 
@@ -2734,7 +2693,7 @@ Google Drive: drive.google.com/drive/folders/1O-nvwRo_sJt4pqDhEBGY2NlAjQy8A2kY`,
             if (matchingLink && !matchingLink.classList.contains('active')) {
               links.forEach(l => l.classList.remove('active'));
               matchingLink.classList.add('active');
-              movePillTo(matchingLink, true);
+              moveLineTo(matchingLink, true);
             }
           }
         });
