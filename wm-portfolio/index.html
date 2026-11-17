@@ -246,6 +246,77 @@
         background: #05000a;
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
+    
+      /* Professional Executive Header Refinements */
+      .ok-nav {
+        background: rgba(6, 2, 12, 0.88) !important;
+        backdrop-filter: blur(20px) !important;
+        -webkit-backdrop-filter: blur(20px) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+      }
+      .ok-nav-inner {
+        padding: 16px 24px !important;
+      }
+      @media (min-width: 768px) {
+        .ok-nav-inner {
+          padding: 16px 40px !important;
+        }
+      }
+      .ok-nav-links {
+        gap: 36px !important;
+      }
+      .ok-nav-links a {
+        font-family: 'Inter', -apple-system, sans-serif !important;
+        font-size: 13.5px !important;
+        font-weight: 500 !important;
+        letter-spacing: 0.015em !important;
+        color: rgba(255, 255, 255, 0.65) !important;
+        padding: 6px 0 !important;
+        transition: color 0.25s ease, opacity 0.25s ease !important;
+      }
+      .ok-nav-links a:hover {
+        color: #ffffff !important;
+        opacity: 1 !important;
+      }
+      .ok-nav-links a.active {
+        color: #ffffff !important;
+        font-weight: 600 !important;
+      }
+      .ok-page .ok-nav-links > a.active::after {
+        content: '' !important;
+        position: absolute !important;
+        left: 0 !important;
+        right: 0 !important;
+        bottom: -2px !important;
+        height: 2px !important;
+        width: 100% !important;
+        border-radius: 2px !important;
+        background: linear-gradient(90deg, #7c3aed, #a78bfa) !important;
+        box-shadow: 0 0 10px rgba(167, 139, 250, 0.8) !important;
+        transform: none !important;
+      }
+      .ok-nav-cta {
+        font-family: 'JetBrains Mono', monospace !important;
+        font-size: 11.5px !important;
+        font-weight: 600 !important;
+        letter-spacing: 0.06em !important;
+        text-transform: uppercase !important;
+        padding: 10px 22px !important;
+        border-radius: 999px !important;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(124, 58, 237, 0.08)) !important;
+        border: 1px solid rgba(210, 187, 255, 0.35) !important;
+        color: #ffffff !important;
+        box-shadow: 0 0 15px rgba(124, 58, 237, 0.2) !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+      }
+      .ok-nav-cta:hover {
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.45), rgba(124, 58, 237, 0.15)) !important;
+        border-color: rgba(210, 187, 255, 0.6) !important;
+        box-shadow: 0 0 25px rgba(124, 58, 237, 0.45) !important;
+        transform: translateY(-1px) !important;
+        color: #ffffff !important;
+      }
     </style>
 </head>
 <body class="ok-page" data-page-type="home">
@@ -272,10 +343,8 @@
         <div class="ok-nav-links">
             <a href="#hero" class="active">Home</a>
             <a href="#capabilities">Capabilities</a>
-            <a href="#diagnostic">Diagnostics</a>
             <a href="#projects">Systems (9)</a>
             <a href="#methodology">Methodology</a>
-            <a href="#terminal">Terminal</a>
         </div>
         <div class="ok-nav-right">
             <a class="ok-btn ok-btn-secondary ok-nav-cta" href="#popup">Partner / Inquire</a>
@@ -289,10 +358,8 @@
     <div class="ok-mobile-nav" id="mainNav">
         <a href="#hero" class="active">Home</a>
         <a href="#capabilities">Capabilities</a>
-        <a href="#diagnostic">Diagnostics</a>
         <a href="#projects">Selected Systems (9)</a>
         <a href="#methodology">Methodology</a>
-        <a href="#terminal">Developer Terminal</a>
         <a class="ok-btn ok-btn-primary ok-btn-block" href="#popup">Partner / Inquire</a>
     </div>
 </nav>
@@ -328,7 +395,7 @@
             Google Drive FYP Folder &nearr;
           </a>
           <a class="ok-btn ok-btn-secondary" href="https://github.com/MwaleedMADNI" target="_blank" rel="noopener">&tau; GitHub Profile &nearr;</a>
-          <a class="ok-btn ok-btn-secondary" href="#terminal">&zap; Developer Terminal</a>
+          
         </div>
         <div class="ok-hero-proof-bar" aria-label="Key engineering metrics">
           <div class="ok-hero-proof-item">
@@ -1247,328 +1314,6 @@
 </section>
 
 <!-- ============================================================
-     SECTION 4: SYSTEM PERFORMANCE & EFFICIENCY AUDIT DASHBOARD
-     ============================================================ -->
-<section id="diagnostics" class="ok-section" style="padding: 100px 0; position: relative;">
-  <div class="ok-container">
-    <div class="ok-reveal" style="text-align: center; max-width: 760px; margin: 0 auto 56px;">
-      <div class="ok-eyebrow" style="justify-content: center;">
-        <span class="ok-eyebrow-dot"></span>
-        SYSTEM DIAGNOSTICS &amp; BENCHMARKS
-      </div>
-      <h2 style="font-size: clamp(32px, 4vw, 48px); margin: 16px 0 20px; line-height: 1.15;">
-        Where Legacy Stacks Leak Speed, Accuracy, and Stability.
-      </h2>
-      <p style="font-size: 17px; color: var(--ok-text-secondary); line-height: 1.65;">
-        Diagnostic telemetry across 5 mission-critical architectures. Explore real benchmarks, performance bottlenecks, and modern engineering solutions implemented across my systems.
-      </p>
-    </div>
-
-    <!-- Diagnostic Shell -->
-    <div class="ok-leak-shell ok-reveal" data-leak-dashboard>
-      <!-- Navigation Tabs -->
-      <div class="ok-leak-tabs" role="tablist" aria-label="Architecture Diagnostic Domains">
-        <button type="button" class="ok-leak-tab active" data-leak-tab="ai" role="tab" aria-selected="true">
-          01 &middot; AI Agent Inference
-        </button>
-        <button type="button" class="ok-leak-tab" data-leak-tab="frontend" role="tab" aria-selected="false">
-          02 &middot; Frontend Core Vitals
-        </button>
-        <button type="button" class="ok-leak-tab" data-leak-tab="vision" role="tab" aria-selected="false">
-          03 &middot; Computer Vision &amp; IFDL
-        </button>
-        <button type="button" class="ok-leak-tab" data-leak-tab="data" role="tab" aria-selected="false">
-          04 &middot; Data Science Pipelines
-        </button>
-        <button type="button" class="ok-leak-tab" data-leak-tab="cloud" role="tab" aria-selected="false">
-          05 &middot; Edge Cloud &amp; SQA
-        </button>
-      </div>
-
-      <!-- Panel 1: AI Agent Inference -->
-      <div class="ok-leak-panel active" data-leak-panel="ai" role="tabpanel">
-        <div>
-          <div class="ok-tag" style="margin-bottom: 12px;">LATENCY BOTTLENECK</div>
-          <div class="ok-leak-big-stat">3.8<span>s</span></div>
-          <p class="ok-leak-stat-label">
-            Average unoptimized LLM agent response latency causing up to 42% user abandonment on interactive workflows and customer-facing assistants.
-          </p>
-          <div class="ok-leak-fix-box">
-            <span class="ok-leak-fix-title">&check; PRODUCTION REMEDY &middot; SUB-SECOND LATENCY</span>
-            <p style="font-size: 13.5px; color: #e4e4e7; line-height: 1.6; margin: 0 0 16px;">
-              Streamed token response chunking, asynchronous parallel tool execution, Redis semantic query caching, and speculative function execution.
-            </p>
-            <div class="ok-leak-fix-pills">
-              <a href="#planner" onclick="openPlanner('AI Latency Optimization')">Deploy Async Toolchains &rarr;</a>
-              <a href="#planner" onclick="openPlanner('Semantic Cache')">Redis Semantic Cache &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ok-leak-bars-col">
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Uncached Context Retrieval</strong>
-              <span>+1,420ms delay</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 82%;"></div>
-            </div>
-            <p>Querying raw vector stores on every turn without semantic embedding deduplication incurs redundant round-trip penalties.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Synchronous Tool Execution</strong>
-              <span>+1,850ms blocking</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 92%;"></div>
-            </div>
-            <p>Sequential API queries freeze UI rendering instead of executing branch-level agent tool calls concurrently in parallel promises.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Hallucination Rerank Retries</strong>
-              <span>28% retry rate</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 64%;"></div>
-            </div>
-            <p>Unstructured schema prompts trigger repeated fallback validation cycles rather than deterministic JSON schema constraints.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 2: Frontend Core Vitals -->
-      <div class="ok-leak-panel" data-leak-panel="frontend" role="tabpanel">
-        <div>
-          <div class="ok-tag" style="margin-bottom: 12px;">RENDER DELAY</div>
-          <div class="ok-leak-big-stat">64<span>%</span></div>
-          <p class="ok-leak-stat-label">
-            Of mobile visitors bounce when Largest Contentful Paint (LCP) exceeds 2.5 seconds, directly deteriorating SEO ranks and lead conversions.
-          </p>
-          <div class="ok-leak-fix-box">
-            <span class="ok-leak-fix-title">&check; PRODUCTION REMEDY &middot; 99+ CORE WEB VITALS</span>
-            <p style="font-size: 13.5px; color: #e4e4e7; line-height: 1.6; margin: 0 0 16px;">
-              Next.js 14 App Router Server Components (RSC), Edge CDN routing, automated WebP/AVIF compression, and inline critical CSS rendering.
-            </p>
-            <div class="ok-leak-fix-pills">
-              <a href="#planner" onclick="openPlanner('Core Web Vitals Audit')">Run Vitals Audit &rarr;</a>
-              <a href="#planner" onclick="openPlanner('Edge SSR Migration')">Edge SSR Migration &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ok-leak-bars-col">
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Monolithic Client JS Bundles</strong>
-              <span>+1.8MB payload</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 88%;"></div>
-            </div>
-            <p>Over-importing client components and unminified utility suites degrades First Input Delay and Interaction to Next Paint (INP).</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Unoptimized Media Assets</strong>
-              <span>+840ms LCP</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 74%;"></div>
-            </div>
-            <p>Unscaled PNG/JPG formats served without modern next-gen responsive image loaders and modern edge cache policies.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Uncached API Payloads</strong>
-              <span>340ms TTFB</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 58%;"></div>
-            </div>
-            <p>Absence of stale-while-revalidate caching headers triggers heavy server recomputations on repeated visitor page requests.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 3: Computer Vision & IFDL -->
-      <div class="ok-leak-panel" data-leak-panel="vision" role="tabpanel">
-        <div>
-          <div class="ok-tag" style="margin-bottom: 12px;">FORENSIC ACCURACY</div>
-          <div class="ok-leak-big-stat">95.4<span>%</span></div>
-          <p class="ok-leak-stat-label">
-            Synthetic media detection precision achieved in IFDL thesis research by extracting both spatial textures and frequency-domain spectral artifacts.
-          </p>
-          <div class="ok-leak-fix-box">
-            <span class="ok-leak-fix-title">&check; PRODUCTION REMEDY &middot; IFDL ARCHITECTURE</span>
-            <p style="font-size: 13.5px; color: #e4e4e7; line-height: 1.6; margin: 0 0 16px;">
-              Dual-branch CNN (ResNet-50 + FFT spectral frequency layer) exposing GAN upsampling anomalies with sub-100ms GPU batch inference.
-            </p>
-            <div class="ok-leak-fix-pills">
-              <a href="#ifdl-research" onclick="openIfdlModal()">Inspect IFDL Specs &rarr;</a>
-              <a href="#planner" onclick="openPlanner('Computer Vision Pipeline')">Build Vision Pipeline &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ok-leak-bars-col">
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Spectral Artifact Miss Rate (Standard CNN)</strong>
-              <span>41% miss rate</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 86%;"></div>
-            </div>
-            <p>Conventional spatial-domain CNNs fail to detect high-frequency GAN upsampling residuals that IFDL FFT layers capture reliably.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Full-Frame Video Processing Overhead</strong>
-              <span>480ms / frame</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 78%;"></div>
-            </div>
-            <p>Naively analyzing full video resolutions without facial/object bounding-box ROI cropping exhausts GPU inference capacity.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Compression Degradation Bias</strong>
-              <span>18% false alarms</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 52%;"></div>
-            </div>
-            <p>Social media compression (H.264/JPEG) obliterates subtle features unless models are trained across multi-codec augmentations.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 4: Data Science Pipelines -->
-      <div class="ok-leak-panel" data-leak-panel="data" role="tabpanel">
-        <div>
-          <div class="ok-tag" style="margin-bottom: 12px;">THROUGHPUT MULTIPLIER</div>
-          <div class="ok-leak-big-stat">10<span>x</span></div>
-          <p class="ok-leak-stat-label">
-            Analytical query speedup realized by replacing single-threaded Python loops with vectorized Apache Arrow columnar memory and FastAPI.
-          </p>
-          <div class="ok-leak-fix-box">
-            <span class="ok-leak-fix-title">&check; PRODUCTION REMEDY &middot; VECTORIZED STREAMING</span>
-            <p style="font-size: 13.5px; color: #e4e4e7; line-height: 1.6; margin: 0 0 16px;">
-              SIMD-vectorized NumPy routines, multiprocessing worker pools, PyArrow zero-copy data transfer, and asynchronous REST endpoints.
-            </p>
-            <div class="ok-leak-fix-pills">
-              <a href="#planner" onclick="openPlanner('Data Pipeline Migration')">Optimize Data Pipeline &rarr;</a>
-              <a href="#planner" onclick="openPlanner('Predictive Analytics')">Build Predictive Hub &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ok-leak-bars-col">
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Row-by-Row Iteration Bottleneck</strong>
-              <span>8.2x slower</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 90%;"></div>
-            </div>
-            <p>Iterating through records using Python for-loops instead of vectorized NumPy/Pandas array operations introduces massive GIL overhead.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Memory Spikes on Big Datasets</strong>
-              <span>4.6GB RAM spike</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 80%;"></div>
-            </div>
-            <p>Loading entire unindexed tabular files into memory rather than chunked streaming via memory-mapped Apache Arrow buffers.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Synchronous Batch ETL Lag</strong>
-              <span>+45min batch delay</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 68%;"></div>
-            </div>
-            <p>Single-threaded batch jobs blocking downstream dashboard updates and delaying mission-critical management reporting.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Panel 5: Edge Cloud & SQA -->
-      <div class="ok-leak-panel" data-leak-panel="cloud" role="tabpanel">
-        <div>
-          <div class="ok-tag" style="margin-bottom: 12px;">SYSTEM RELIABILITY</div>
-          <div class="ok-leak-big-stat">99.9<span>%</span></div>
-          <p class="ok-leak-stat-label">
-            Production system availability achieved with automated end-to-end Playwright regression suites, multi-stage Docker builds, and CI/CD rollbacks.
-          </p>
-          <div class="ok-leak-fix-box">
-            <span class="ok-leak-fix-title">&check; PRODUCTION REMEDY &middot; ZERO-REGRESSION CI/CD</span>
-            <p style="font-size: 13.5px; color: #e4e4e7; line-height: 1.6; margin: 0 0 16px;">
-              Automated GitHub Actions pipelines, containerized staging mirrors, automated Playwright/Jest smoke testing, and instant rollback triggers.
-            </p>
-            <div class="ok-leak-fix-pills">
-              <a href="#planner" onclick="openPlanner('DevOps CI/CD Setup')">Setup Edge CI/CD &rarr;</a>
-              <a href="#planner" onclick="openPlanner('Automated SQA')">Implement SQA Automation &rarr;</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="ok-leak-bars-col">
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Untested Edge Regressions</strong>
-              <span>24% post-deploy bugs</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 75%;"></div>
-            </div>
-            <p>Deploying without automated cross-browser Playwright suites that verify critical user conversion paths and third-party API contracts.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Bloated Container Images</strong>
-              <span>1.4GB container footprint</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 85%;"></div>
-            </div>
-            <p>Unoptimized single-stage Dockerfiles leaking build-time dev dependencies and slowing down cold deployment spins by 15+ minutes.</p>
-          </div>
-
-          <div class="ok-leak-bar-item">
-            <div class="ok-leak-bar-head">
-              <strong>Manual Disaster Rollback</strong>
-              <span>45min MTTR</span>
-            </div>
-            <div class="ok-leak-bar-track">
-              <div class="ok-leak-bar-fill" style="--leak-w: 65%;"></div>
-            </div>
-            <p>Absence of automated health-check alarms and instant canary rollbacks resulting in prolonged user-facing service outages.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      SECTION 5: SELECTED PRODUCTION SYSTEMS & RESEARCH
      ============================================================ -->
 <section id="projects" class="ok-section" style="padding: 100px 0; position: relative;">
@@ -2074,68 +1819,6 @@
 </section>
 
 <!-- ============================================================
-     SECTION 7: INTERACTIVE DEVELOPER CLI TERMINAL
-     ============================================================ -->
-<section id="terminal" class="ok-section" style="padding: 100px 0; position: relative;">
-  <div class="ok-container">
-    <div class="ok-reveal" style="text-align: center; max-width: 740px; margin: 0 auto 52px;">
-      <div class="ok-eyebrow" style="justify-content: center;">
-        <span class="ok-eyebrow-dot"></span>
-        ENGINEER COMMAND LINE INTERFACE
-      </div>
-      <h2 style="font-size: clamp(32px, 4vw, 48px); margin: 16px 0 20px; line-height: 1.15;">
-        Query the system directly via developer console.
-      </h2>
-      <p style="font-size: 17px; color: var(--ok-text-secondary); line-height: 1.65;">
-        Interact with the live station terminal. Query background specs, thesis research, tech stacks, or trigger the project planner directly from the prompt.
-      </p>
-    </div>
-
-    <!-- Terminal Window -->
-    <div class="ok-terminal-window ok-reveal" style="max-width: 860px; margin: 0 auto; background: #08050e; border: 1px solid rgba(210,187,255,0.25); border-radius: var(--ok-radius-lg); box-shadow: 0 24px 80px rgba(0,0,0,0.6); overflow: hidden; font-family: 'JetBrains Mono', monospace;">
-      <!-- Terminal Title Bar -->
-      <div style="background: rgba(255,255,255,0.03); border-bottom: 1px solid rgba(255,255,255,0.08); padding: 12px 18px; display: flex; align-items: center; justify-content: space-between;">
-        <div style="display: flex; align-items: center; gap: 8px;">
-          <span style="width: 11px; height: 11px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
-          <span style="width: 11px; height: 11px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
-          <span style="width: 11px; height: 11px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
-          <span style="margin-left: 12px; font-size: 11.5px; color: var(--ok-text-secondary); letter-spacing: 0.05em;">waleed@systems-station:~</span>
-        </div>
-        <div style="font-size: 11px; color: #6ee7b7;">
-          BASH &middot; UTF-8 &middot; LIVE
-        </div>
-      </div>
-
-      <!-- Terminal Output Buffer -->
-      <div id="termOutput" style="padding: 24px; min-height: 280px; max-height: 420px; overflow-y: auto; font-size: 13px; line-height: 1.6; color: #e4e4e7;">
-        <div style="color: var(--ok-primary-light); margin-bottom: 12px; font-weight: 600;">
-          [SYS_INIT] Muhammad Waleed Madni &mdash; Systems &amp; AI Engineering Station v2.6.4
-        </div>
-        <div style="color: var(--ok-text-secondary); margin-bottom: 16px;">
-          Connected to station: 127.0.0.1:3000 | Status: Optimal | Type <span style="color: #6ee7b7; font-weight: 700;">'help'</span> for available commands.
-        </div>
-        <div style="color: #a1a1aa; font-size: 12px; margin-bottom: 16px;">
-          Try typing: <span style="color: #fff; text-decoration: underline; cursor: pointer;" onclick="runTermCommand('skills')">skills</span>, 
-          <span style="color: #fff; text-decoration: underline; cursor: pointer;" onclick="runTermCommand('projects')">projects</span>, 
-          <span style="color: #fff; text-decoration: underline; cursor: pointer;" onclick="runTermCommand('thesis')">thesis</span>, 
-          <span style="color: #fff; text-decoration: underline; cursor: pointer;" onclick="runTermCommand('contact')">contact</span>, 
-          or <span style="color: #fff; text-decoration: underline; cursor: pointer;" onclick="runTermCommand('hire')">hire</span>.
-        </div>
-      </div>
-
-      <!-- Terminal Input Line -->
-      <div style="background: rgba(255,255,255,0.02); border-top: 1px solid rgba(255,255,255,0.08); padding: 14px 20px; display: flex; align-items: center; gap: 10px;">
-        <span style="color: #6ee7b7; font-weight: 700; font-size: 13.5px;">waleed@station:~$</span>
-        <input type="text" id="termInput" autocomplete="off" spellcheck="false" placeholder="Type a command (e.g. 'help', 'projects', 'thesis')..." style="flex: 1; background: transparent; border: none; outline: none; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #ffffff;" onkeydown="handleTermKey(event)">
-        <button type="button" onclick="executeCurrentTermCommand()" class="ok-btn ok-btn-secondary" style="padding: 6px 14px; font-size: 11px;">
-          Run &rarr;
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================
      SECTION 8: VERIFIED NUMERICAL METRICS
      ============================================================ -->
 <section class="ok-section" style="padding: 72px 0; border-top: 1px solid rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.05); background: rgba(8, 5, 14, 0.7);">
@@ -2262,10 +1945,10 @@
         <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; font-size: 14px;">
           <li><a href="#capabilities" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Capabilities</a></li>
           <li><a href="#models" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Engagement Models</a></li>
-          <li><a href="#diagnostics" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Diagnostics Audit</a></li>
+          
           <li><a href="#projects" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Selected Work (9)</a></li>
           <li><a href="#methodology" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Methodology</a></li>
-          <li><a href="#terminal" style="color: var(--ok-text-secondary); text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--ok-text-secondary)'">Terminal CLI</a></li>
+          
         </ul>
       </div>
 
