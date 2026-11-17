@@ -247,100 +247,277 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
       }
     
-      /* Professional Executive Header Refinements */
-      .ok-nav {
-        background: rgba(6, 2, 12, 0.88) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
-        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5) !important;
+      /* ==========================================================
+         STYLISH ANIMATED FLOATING CAPSULE NAVIGATION (EXECUTIVE)
+         ========================================================== */
+      .ok-site-header {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        z-index: 500 !important;
+        pointer-events: none !important;
+        padding: 14px 20px !important;
+        display: flex !important;
+        justify-content: center !important;
+        transition: padding 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
+      @media (min-width: 768px) {
+        .ok-site-header {
+          padding: 18px 24px !important;
+        }
+      }
+
+      .ok-nav {
+        pointer-events: auto !important;
+        position: relative !important;
+        width: 100% !important;
+        max-width: 1200px !important;
+        border-radius: 999px !important;
+        margin: 0 auto !important;
+        background: rgba(9, 4, 18, 0.72) !important;
+        backdrop-filter: blur(28px) saturate(190%) !important;
+        -webkit-backdrop-filter: blur(28px) saturate(190%) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 
+          0 16px 40px rgba(0, 0, 0, 0.65),
+          0 0 0 1px rgba(124, 58, 237, 0.12),
+          0 0 35px rgba(124, 58, 237, 0.15),
+          inset 0 1px 0 rgba(255, 255, 255, 0.16) !important;
+        transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        overflow: visible !important;
+      }
+
+      /* Compact mode on scroll */
+      .ok-nav.is-scrolled {
+        background: rgba(7, 2, 15, 0.9) !important;
+        border-color: rgba(167, 139, 250, 0.28) !important;
+        box-shadow: 
+          0 20px 50px rgba(0, 0, 0, 0.85),
+          0 0 0 1px rgba(124, 58, 237, 0.25),
+          0 0 45px rgba(124, 58, 237, 0.28),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22) !important;
+        transform: translateY(-2px) !important;
+      }
+
+      /* Animated Glowing Shimmer Perimeter Light */
+      .nav-shimmer-border {
+        position: absolute;
+        inset: -1px;
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: 0;
+        padding: 1px;
+        background: linear-gradient(
+          90deg,
+          rgba(124, 58, 237, 0) 0%,
+          rgba(167, 139, 250, 0.6) 30%,
+          rgba(110, 231, 183, 0.7) 50%,
+          rgba(124, 58, 237, 0.6) 70%,
+          rgba(124, 58, 237, 0) 100%
+        );
+        background-size: 200% 100%;
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        animation: navShimmerTrace 8s linear infinite;
+        opacity: 0.65;
+        transition: opacity 0.3s ease;
+      }
+      .ok-nav:hover .nav-shimmer-border {
+        opacity: 1;
+        animation-duration: 5s;
+      }
+      @keyframes navShimmerTrace {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
       .ok-nav-inner {
-        padding: 16px 24px !important;
+        position: relative;
+        z-index: 1;
+        padding: 10px 20px !important;
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
       }
       @media (min-width: 768px) {
         .ok-nav-inner {
-          padding: 18px 40px !important;
+          padding: 11px 28px !important;
         }
       }
-      @media (min-width: 900px) {
-        .ok-nav-right {
-          display: none !important;
-        }
+
+      /* Logo & Brand Glow Animation */
+      .brand-logo-wrap {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
+      .brand-glyph svg {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.4s ease;
+      }
+      .ok-nav-logo:hover .brand-glyph svg {
+        transform: rotate(60deg) scale(1.1);
+        filter: drop-shadow(0 0 10px #a78bfa);
+      }
+      .brand-status-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+        margin-left: 6px;
+        padding: 3px 9px;
+        border-radius: 999px;
+        background: rgba(16, 185, 129, 0.08);
+        border: 1px solid rgba(16, 185, 129, 0.28);
+        font-family: 'JetBrains Mono', monospace;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: #6ee7b7;
+      }
+      .status-ping-dot {
+        position: absolute;
+        left: 8px;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: rgba(16, 185, 129, 0.8);
+        animation: statusRadarPing 2s cubic-bezier(0, 0, 0.2, 1) infinite;
+      }
+      .status-core-dot {
+        position: relative;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #10b981;
+        box-shadow: 0 0 8px #10b981;
+      }
+      @keyframes statusRadarPing {
+        0% { transform: scale(1); opacity: 0.9; }
+        75%, 100% { transform: scale(3); opacity: 0; }
+      }
+
+      /* Navigation Links with Generous Spacing & Magnetic Slider */
       .ok-nav-links {
-        display: none;
+        position: relative !important;
+        display: none !important;
         align-items: center !important;
         margin-left: auto !important;
-        gap: 40px !important;
+        gap: 36px !important;
+        padding: 3px 6px !important;
+        border-radius: 999px !important;
+        background: rgba(255, 255, 255, 0.02) !important;
+        border: 1px solid rgba(255, 255, 255, 0.05) !important;
       }
       @media (min-width: 900px) {
         .ok-nav-links {
           display: flex !important;
         }
+        .ok-nav-right {
+          display: none !important;
+        }
       }
       @media (min-width: 1200px) {
         .ok-nav-links {
-          gap: 52px !important;
+          gap: 48px !important;
         }
       }
+
+      /* The Magnetic Gliding Liquid Glass Pill */
+      .nav-magnetic-pill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        border-radius: 999px;
+        pointer-events: none;
+        z-index: 1;
+        background: linear-gradient(135deg, rgba(124, 58, 237, 0.32), rgba(167, 139, 250, 0.12));
+        border: 1px solid rgba(167, 139, 250, 0.45);
+        box-shadow: 
+          0 0 20px rgba(124, 58, 237, 0.35),
+          inset 0 1px 0 rgba(255, 255, 255, 0.22);
+        opacity: 0;
+        transform: translate3d(0, 0, 0);
+        transition: 
+          transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+          width 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+          height 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+          opacity 0.2s ease;
+      }
+
       .ok-nav-links a {
+        position: relative !important;
+        z-index: 2 !important;
         font-family: 'Inter', -apple-system, sans-serif !important;
-        font-size: 14px !important;
+        font-size: 13.5px !important;
         font-weight: 500 !important;
         letter-spacing: 0.02em !important;
         color: rgba(255, 255, 255, 0.72) !important;
         padding: 8px 18px !important;
         border-radius: 999px !important;
         text-decoration: none !important;
-        position: relative !important;
-        background: rgba(255, 255, 255, 0.02) !important;
-        border: 1px solid rgba(255, 255, 255, 0.06) !important;
-        transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+        transition: color 0.25s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
       }
       .ok-nav-links a:hover {
         color: #ffffff !important;
-        background: rgba(255, 255, 255, 0.08) !important;
-        border-color: rgba(255, 255, 255, 0.16) !important;
         transform: translateY(-1px) !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3) !important;
       }
       .ok-nav-links a.active {
         color: #ffffff !important;
         font-weight: 600 !important;
-        background: linear-gradient(135deg, rgba(124, 58, 237, 0.22), rgba(124, 58, 237, 0.08)) !important;
-        border-color: rgba(167, 139, 250, 0.4) !important;
-        box-shadow: 0 0 16px rgba(124, 58, 237, 0.3) !important;
       }
       .ok-page .ok-nav-links > a.active::after {
-        content: '' !important;
+        display: none !important;
+      }
+
+      /* Floating Mobile Navigation Card */
+      .ok-page #mainNav.ok-mobile-nav {
+        display: none;
         position: absolute !important;
-        left: 20% !important;
-        right: 20% !important;
-        bottom: -2px !important;
-        height: 2px !important;
-        width: auto !important;
-        border-radius: 2px !important;
-        background: linear-gradient(90deg, #7c3aed, #a78bfa) !important;
-        box-shadow: 0 0 10px rgba(167, 139, 250, 0.9) !important;
-        transform: none !important;
+        top: calc(100% + 12px) !important;
+        left: 0 !important;
+        right: 0 !important;
+        width: 100% !important;
+        background: rgba(9, 4, 18, 0.96) !important;
+        backdrop-filter: blur(28px) !important;
+        -webkit-backdrop-filter: blur(28px) !important;
+        border-radius: 20px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(124, 58, 237, 0.2) !important;
+        padding: 16px 20px !important;
+        z-index: 499 !important;
+        transform: translateY(-8px) !important;
+        opacity: 0 !important;
+        transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        pointer-events: none !important;
+      }
+      .ok-page #mainNav.ok-mobile-nav.nav-open {
+        display: block !important;
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
       }
       .ok-page #mainNav.ok-mobile-nav a {
         display: block !important;
-        padding: 14px 18px !important;
+        padding: 13px 18px !important;
         margin-bottom: 6px !important;
-        border-radius: 8px !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+        border-radius: 12px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
         font-size: 15px !important;
         color: rgba(255, 255, 255, 0.75) !important;
+        transition: all 0.2s ease !important;
       }
       .ok-page #mainNav.ok-mobile-nav a:hover,
       .ok-page #mainNav.ok-mobile-nav a.active {
         color: #ffffff !important;
-        background: rgba(124, 58, 237, 0.15) !important;
+        background: rgba(124, 58, 237, 0.18) !important;
+        border-color: rgba(167, 139, 250, 0.3) !important;
       }
     </style>
 </head>
@@ -349,9 +526,10 @@
 <!-- Three.js Undulating Topography Canvas Background -->
 <div id="canvas-container" aria-hidden="true" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; opacity: 0.65;"></div>
 
-<!-- Header / Glassmorphism Navigation -->
-<header class="ok-site-header">
-<nav class="ok-nav" aria-label="Primary navigation">
+<!-- Header / Stylish Animated Floating Glass Capsule Navigation -->
+<header class="ok-site-header" id="siteHeader">
+<nav class="ok-nav" id="floatingNav" aria-label="Primary navigation">
+    <div class="nav-shimmer-border" aria-hidden="true"></div>
     <div class="ok-nav-inner">
         <a href="/" class="ok-nav-logo" aria-label="Waleed Systems">
             <div class="brand-logo-wrap">
@@ -363,13 +541,19 @@
                     </svg>
                 </span>
                 <span class="brand-name">WALEED <span class="brand-dim">// SYSTEMS</span></span>
+                <span class="brand-status-tag" title="System Operational">
+                    <span class="status-ping-dot"></span>
+                    <span class="status-core-dot"></span>
+                    <span class="status-label">ONLINE</span>
+                </span>
             </div>
         </a>
-        <div class="ok-nav-links">
-            <a href="#hero" class="active">Home</a>
-            <a href="#capabilities">Capabilities</a>
-            <a href="#projects">Systems (9)</a>
-            <a href="#methodology">Methodology</a>
+        <div class="ok-nav-links" id="desktopNavLinks">
+            <div class="nav-magnetic-pill" id="navMagneticPill" aria-hidden="true"></div>
+            <a href="#hero" class="nav-item active" data-section="hero">Home</a>
+            <a href="#capabilities" class="nav-item" data-section="capabilities">Capabilities</a>
+            <a href="#projects" class="nav-item" data-section="projects">Systems (9)</a>
+            <a href="#methodology" class="nav-item" data-section="methodology">Methodology</a>
         </div>
         <div class="ok-nav-right">
             <button class="ok-nav-toggle" id="mobileNavToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
@@ -2463,6 +2647,105 @@ Google Drive: drive.google.com/drive/folders/1O-nvwRo_sJt4pqDhEBGY2NlAjQy8A2kY`,
       }
     });
   });
+
+  // ==========================================================
+  // STYLISH ANIMATED FLOATING NAVBAR CONTROLLER
+  // ==========================================================
+  (function initStylishAnimatedNav() {
+    const container = document.getElementById('desktopNavLinks');
+    const pill = document.getElementById('navMagneticPill');
+    const nav = document.getElementById('floatingNav');
+    if (!container || !pill) return;
+
+    const links = Array.from(container.querySelectorAll('.nav-item'));
+
+    function movePillTo(target, smooth = true) {
+      if (!target) {
+        pill.style.opacity = '0';
+        return;
+      }
+      const containerRect = container.getBoundingClientRect();
+      const targetRect = target.getBoundingClientRect();
+      const left = targetRect.left - containerRect.left;
+      const top = targetRect.top - containerRect.top;
+      const width = targetRect.width;
+      const height = targetRect.height;
+
+      if (!smooth) {
+        pill.style.transition = 'none';
+      } else {
+        pill.style.transition = 'transform 0.32s cubic-bezier(0.16, 1, 0.3, 1), width 0.32s cubic-bezier(0.16, 1, 0.3, 1), height 0.32s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.2s ease';
+      }
+
+      pill.style.width = width + 'px';
+      pill.style.height = height + 'px';
+      pill.style.transform = `translate3d(${left}px, ${top}px, 0)`;
+      pill.style.opacity = '1';
+    }
+
+    function getActiveLink() {
+      return container.querySelector('.nav-item.active') || links[0];
+    }
+
+    // Initial positioning after DOM paint
+    setTimeout(() => movePillTo(getActiveLink(), false), 150);
+
+    // Hover and focus events
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => movePillTo(link, true));
+      link.addEventListener('focus', () => movePillTo(link, true));
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+        movePillTo(link, true);
+      });
+    });
+
+    container.addEventListener('mouseleave', () => {
+      movePillTo(getActiveLink(), true);
+    });
+
+    window.addEventListener('resize', () => {
+      movePillTo(getActiveLink(), false);
+    });
+
+    // Dynamic Scroll Depth & Compact State
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (nav) {
+        if (currentScroll > 40) {
+          nav.classList.add('is-scrolled');
+        } else {
+          nav.classList.remove('is-scrolled');
+        }
+      }
+    }, { passive: true });
+
+    // Intelligent Scroll-Spy: Glides pill to section currently in view
+    const sectionIds = ['hero', 'capabilities', 'projects', 'methodology'];
+    const observedSections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    if ('IntersectionObserver' in window && observedSections.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const matchingLink = links.find(l => l.getAttribute('href') === `#${id}`);
+            if (matchingLink && !matchingLink.classList.contains('active')) {
+              links.forEach(l => l.classList.remove('active'));
+              matchingLink.classList.add('active');
+              movePillTo(matchingLink, true);
+            }
+          }
+        });
+      }, {
+        rootMargin: '-25% 0px -45% 0px',
+        threshold: 0.1
+      });
+
+      observedSections.forEach(sec => observer.observe(sec));
+    }
+  })();
 </script>
 </body>
 </html>
